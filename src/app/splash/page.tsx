@@ -144,7 +144,7 @@ export default function Splash() {
               >
                 {currentItem === 0 && (
                   <div className="w-[100%] h-[700px]" id="section-one">
-                    I'm{" "}
+                    {"I'm"}
                     <span className="text-lg text-center underline decoration-sky-500">
                       Shovian
                     </span>
@@ -162,8 +162,8 @@ export default function Splash() {
                     captivating experiences that bridge the gap between
                     imagination and reality. From sleek websites that captivate
                     with every scroll to intricate applications that
-                    revolutionize how we interact with technology, I'm here to
-                    push boundaries and unlock new possibilities.
+                    revolutionize how we interact with technology, {"I'm"} here
+                    to push boundaries and unlock new possibilities.
                   </div>
                 )}
                 {currentItem === 2 && (
@@ -175,7 +175,7 @@ export default function Splash() {
                     wizardry. Your adventure awaits just beyond the
                     threshold—get ready to embark on an exhilarating quest that
                     will leave an indelible mark on your digital soul. Together,
-                    we'll create memories, forge connections, and unlock the
+                    {"we'll"} create memories, forge connections, and unlock the
                     true potential of our shared passions. Stay tuned, for the
                     moment of revelation is upon us. With bated breath, click
                     that button of destiny, and let the symphony of our digital
