@@ -144,7 +144,7 @@ export default function Splash() {
               >
                 {currentItem === 0 && (
                   <div className="w-[100%] h-[700px]" id="section-one">
-                    {"I'm"}
+                    {"I'm "}
                     <span className="text-lg text-center underline decoration-sky-500">
                       Shovian
                     </span>
