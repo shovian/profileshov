@@ -25,3 +25,109 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.show {
+  /* background-color: blue; */
+  color: transparent;
+  opacity: 1;
+  grid-template-rows: 1fr;
+}
+
+.hide {
+  /* background-color: transparent; */
+  opacity: 1;
+  color: black;
+}
+
+@property --myColor1 {
+  syntax: "<color>";
+  initial-value: #33cc4d;
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: "<color>";
+  initial-value: transparent;
+  inherits: false;
+}
+
+.gradient-transition-rt {
+  /* Optional: change initial value of the variables */
+  /* --myColor1: #f64; --myColor2: brown; */
+  --myColor1: #3366cc;
+  background: radial-gradient(closest-side, var(--myColor1), var(--myColor2));
+  background-position: -100% 200%;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  /* transition: --myColor1 1s, --myColor2 1s; */
+}
+.gradient-transition-rt:hover {
+  background-position: 0% 100%;
+  /* --myColor1: indigo;
+  --myColor2: transparent; */
+}
+.gradient-transition-lt {
+  /* Optional: change initial value of the variables */
+  /* --myColor1: #f64; --myColor2: brown; */
+  --myColor1: #cc33b2;
+  background: radial-gradient(closest-side, var(--myColor1), var(--myColor2));
+  background-position: 200% 200%;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  /* transition: --myColor1 1s, --myColor2 1s; */
+}
+.gradient-transition-lt:hover {
+  background-position: 100% 100%;
+  /* --myColor1: indigo;
+  --myColor2: transparent; */
+}
+.gradient-transition-lb {
+  /* Optional: change initial value of the variables */
+  /* --myColor1: #f64; --myColor2: brown; */
+  --myColor1: #cc9933;
+  background: radial-gradient(closest-side, var(--myColor1), var(--myColor2));
+  background-position: 200% -100%;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  /* transition: --myColor1 1s, --myColor2 1s; */
+}
+.gradient-transition-lb:hover {
+  background-position: 100% 0%;
+  /* --myColor1: indigo;
+  --myColor2: transparent; */
+}
+.gradient-transition-rb {
+  /* Optional: change initial value of the variables */
+  /* --myColor1: #f64; --myColor2: brown; */
+
+  background: radial-gradient(closest-side, var(--myColor1), var(--myColor2));
+  background-position: -100% -100%;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  /* transition: --myColor1 1s, --myColor2 1s; */
+}
+.gradient-transition-rb:hover {
+  background-position: 0% 0%;
+  /* --myColor1: indigo;
+  --myColor2: transparent; */
+}
