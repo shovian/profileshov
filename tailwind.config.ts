@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        "0fr": "0fr",
+        "1fr": "1fr",
+      },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
         splash: "splash 0.5s ease-in-out 1",

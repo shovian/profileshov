@@ -32,8 +32,10 @@ export default function Splash() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
   const carouselItem = ["0", "1/3", "2/3"];
-  const [currentItem, setCurrentItem] = useState(0);
-
+  const [currentItem, setCurrentItem] = useState(1);
+  useEffect(() => {
+    console.log(currentItem);
+  }, [currentItem]);
   useEffect(() => {
     timeout(1000).then(() => {
       setIsLoading(false);
@@ -45,7 +47,7 @@ export default function Splash() {
         isLeaving ? "animate-leaving opacity-0" : "animate-splash"
       }`}
     >
-      <div className="absolute  flex h-full w-full flex-row justify-between ">
+      <div className="absolute flex h-full w-full flex-row justify-between ">
         <div className="flex flex-col w-full">
           <div className="flex h-full  font-mono text-sm  gradient-transition-lt group">
             <div
@@ -134,16 +136,30 @@ export default function Splash() {
           <div className="mb-10 text-xl text-center">
             Welcome to my digital realm!
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row max-h-full w-full transition-all">
             <div className="flex px-4 items-center ">{"<"}</div>
-            <div className="overflow-x-hidden overflow-y-auto  ">
+            <div className="overflow-x-hidden overflow-y-auto  w-full ">
               {/* edit the translate and add button to change page! */}
 
               <div
-                className={`transition-all flex flex-row w-[100%] text-justify h-32`}
+                className={`transition-all grid grid-flow-col grid-rows-[0fr] grid-rows-[${
+                  currentItem / currentItem
+                }fr] w-[100%] text-justify `}
               >
-                {currentItem === 0 && (
-                  <div className="w-[100%] h-[700px]" id="section-one">
+                <div className="overflow-hidden ">
+                  <div
+                    className={`transition-all flex flex-1 w-full h-1 ${
+                      currentItem === 0 ? "" : "hidden"
+                    }`}
+                  >
+                    a
+                  </div>
+                  <div
+                    className={`transition-all  ${
+                      currentItem === 1 ? "" : "hidden"
+                    }`}
+                    id="section-one"
+                  >
                     {"I'm "}
                     <span className="text-lg text-center underline decoration-sky-500">
                       Shovian
@@ -152,9 +168,13 @@ export default function Splash() {
                     melodic maestro weaving harmonies, and a tenacious coder
                     crafting digital experiences.
                   </div>
-                )}
-                {currentItem === 1 && (
-                  <div className="w-[100%]" id="section-two">
+
+                  <div
+                    className={`transition-all  ${
+                      currentItem === 2 ? "" : "hidden"
+                    }`}
+                    id="section-two"
+                  >
                     Prepare to be transported to realms of sonic bliss. Beyond
                     the realms of gaming and music, I wield the power of coding
                     to shape digital landscapes. As a relentless seeker of
@@ -165,9 +185,12 @@ export default function Splash() {
                     revolutionize how we interact with technology, {"I'm"} here
                     to push boundaries and unlock new possibilities.
                   </div>
-                )}
-                {currentItem === 2 && (
-                  <div className="w-[100%]" id="section-three">
+                  <div
+                    className={`transition-all  ${
+                      currentItem === 3 ? "" : "hidden"
+                    }`}
+                    id="section-three"
+                  >
                     So, fellow explorer, fasten your seatbelt and prepare for an
                     extraordinary journey through my digital universe. As the
                     button pops, the anticipation builds, promising a unique
@@ -181,12 +204,15 @@ export default function Splash() {
                     that button of destiny, and let the symphony of our digital
                     adventure commence!
                   </div>
-                )}
+                </div>
               </div>
             </div>
             <div
               onClick={() => {
-                setCurrentItem((currentItem + 1) % 3);
+                setCurrentItem(0);
+                setTimeout(() => {
+                  setCurrentItem((currentItem % 3) + 1);
+                }, 200);
               }}
               className="flex px-4 items-center"
             >
@@ -195,7 +221,7 @@ export default function Splash() {
           </div>
           <div className={`wrapper ${isLoading ? "show  " : "hide"} `}>
             <div
-              className={`overflow-hidden mt-4 group/wrapper ${
+              className={`overflow-hidden mt-8 group/wrapper ${
                 isLoading ? "" : "animate-bounce hover:animate-none"
               }`}
             >
